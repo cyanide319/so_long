@@ -6,13 +6,13 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 14:43:43 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/06/17 14:45:49 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:11:58 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *s)
+size_t	ft_strlen1(char *s)
 {
 	size_t	i;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(char *s)
 	return (i);
 }
 
-char	*ft_strchr(char *str, int c)
+char	*ft_strchr1(char *str, int c)
 {
 	if (!str)
 		return (NULL);
@@ -37,7 +37,7 @@ char	*ft_strchr(char *str, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin1(char *s1, char *s2)
 {
 	char	*buffer;
 	size_t	i;
@@ -52,7 +52,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	if (!s1 || !s2)
 		return (NULL);
-	buffer = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	buffer = malloc(sizeof(char) * (ft_strlen1(s1) + ft_strlen1(s2) + 1));
 	if (!buffer)
 		return (NULL);
 	if (s1)
@@ -60,7 +60,7 @@ char	*ft_strjoin(char *s1, char *s2)
 			buffer[i] = s1[i];
 	while (s2[j] != '\0')
 		buffer[i++] = s2[j++];
-	buffer[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	buffer[ft_strlen1(s1) + ft_strlen1(s2)] = '\0';
 	free(s1);
 	return (buffer);
 }

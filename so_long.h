@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:29:47 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/10/10 15:38:18 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/10/25 16:04:39 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <mlx.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
+# include "include/libft/libft.h"
+# include "include/printf/ft_printf.h"
+# include "include/get_next_line/get_next_line.h"
 
 typedef struct s_data {
 	void	*img;
@@ -32,6 +36,28 @@ typedef struct s_data {
 	int		*pixel;
 }				t_data;
 
+typedef struct s_map{
+	char	**map;
+	int		y;
+	int		x;
+}	t_map;
 
+typedef enum e_bool{
+	true,
+	false,
+}t_bool;
+
+//parse-moi l'sac
+void	map_open(int fd, t_map *map);
+char	*ft_get_next_line(int fd);
+
+//errors handling
+void	error(int fd, int code, t_map *map);
+void	free_array(char	***tabp);
+void	clean_n_quit(int fd, t_map *map);
+
+//key maps
+int		exit_escape(int keycode, t_data *img);
+int		exit_x(t_data *img);
 
 #endif

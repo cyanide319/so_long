@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 14:16:40 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/06/16 09:43:34 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:11:32 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*stash_to_line(char *stash)
 	i = 0;
 	if (!stash[i])
 		return (NULL);
-	line = malloc(sizeof(char) * (ft_strlen(stash) + 1));
+	line = malloc(sizeof(char) * (ft_strlen1(stash) + 1));
 	if (!line)
 		return (NULL);
 	while (stash[i] && stash[i] != '\n')
@@ -55,7 +55,7 @@ char	*free_stash(char *stash)
 		free(stash);
 		return (NULL);
 	}
-	buffer = malloc(sizeof(char) * (ft_strlen(stash) - i + 1));
+	buffer = malloc(sizeof(char) * (ft_strlen1(stash) - i + 1));
 	if (!buffer)
 		return (NULL);
 	i++;
@@ -83,7 +83,7 @@ char	*get_next_line(int fd)
 	line = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!line)
 		return (NULL);
-	while (!ft_strchr(stash, '\n') && processed != 0)
+	while (!ft_strchr1(stash, '\n') && processed != 0)
 	{
 		processed = read(fd, line, BUFFER_SIZE);
 		if (processed == -1)
@@ -92,7 +92,7 @@ char	*get_next_line(int fd)
 			return (NULL);
 		}
 		line[processed] = '\0';
-		stash = ft_strjoin(stash, line);
+		stash = ft_strjoin1(stash, line);
 	}
 	free (line);
 	line = stash_to_line(stash);

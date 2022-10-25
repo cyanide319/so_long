@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:29:32 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/10/10 16:13:03 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/10/25 16:04:20 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,30 @@ int	exit_x(t_data *img)
 	return (0);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_data	img;
+	t_map	map;
+	int		fd;
 
+	fd = 0;
+	if (argc == 2)
+	{
+		fd = open(argv[1], O_RDONLY);
+		if (fd == -1)
+		{
+			error (fd, 1, &map);
+		}
+		map_open(fd, &map);
+	}
+	else
+	{
+		error (fd, 1, &map);
+	}
+	ft_bzero(&img, sizeof(t_data));
 	img.mlx = mlx_init();
 	img.mlx_win = mlx_new_window(img.mlx, 1000, 1000, "Whatever");
 	img.img = mlx_new_image(img.mlx, 1000, 1000);
-
 	mlx_key_hook(img.mlx_win, exit_escape, &img);
 	mlx_hook(img.mlx_win, 17, 0, exit_x, &img);
 	mlx_loop(img.mlx);

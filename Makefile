@@ -6,7 +6,7 @@
 #    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/10 15:20:57 by tbeaudoi          #+#    #+#              #
-#    Updated: 2022/10/10 15:47:48 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2022/10/25 15:38:32 by tbeaudoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,9 @@ GNLSRC = include/get_next_line/get_next_line.c \
 GNLOBJ = $(GNLSRC:.c=.o)
 
 SRCS_FILES = so_long.c \
+			initialize.c \
+			gnl.c \
+			errors.c \
 			 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_FILES))
 OBJS = $(SRCS:.c=.o)
@@ -37,10 +40,10 @@ all: 	$(NAME)
 
 
 $(NAME): $(OBJS) $(GNLOBJ)
-	-@$(MAKE) -C $(LIBFT_PATH)
-	-@$(MAKE) -C $(PRINTF_PATH)
-	-@$(CC) $(CFLAGS)  -o $@ $^ $(LIBFT) -L. -lmlx -framework OpenGL -framework AppKit 
-	-@echo "$(GREEN)$(NAME) created!$(DEFAULT)"
+	$(MAKE) -C $(LIBFT_PATH)
+	$(MAKE) -C $(PRINTF_PATH)
+	$(CC) $(CFLAGS)  -o $@ $^ $(LIBFT) $(PRINTF) -L. -lmlx -framework OpenGL -framework AppKit 
+	@echo "$(GREEN)$(NAME) created!$(DEFAULT)"
 
 clean:
 	@$(RM) $(OBJS)
