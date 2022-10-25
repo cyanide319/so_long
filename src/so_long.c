@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:29:32 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/10/25 16:04:20 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:40:41 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@ void	clean_quit(void)
 	exit(0);
 }
 
-int	exit_escape(int keycode, t_data *img)
+int	exit_escape(int keycode, t_data *img, t_map *map)
 {
 	if (keycode == 53)
 	{
 		mlx_destroy_window(img->mlx, img->mlx_win);
-		clean_quit();
+		clean_n_quit(map);
 	}
 	return (0);
 }
 
-int	exit_x(t_data *img)
+int	exit_x(t_data *img, t_map *map)
 {
 	mlx_destroy_window(img->mlx, img->mlx_win);
-	clean_quit();
+	clean_n_quit(map);
 	return (0);
 }
 
@@ -38,21 +38,20 @@ int	main(int argc, char **argv)
 {
 	t_data	img;
 	t_map	map;
-	int		fd;
 
-	fd = 0;
+	map.fd = 0;
 	if (argc == 2)
 	{
-		fd = open(argv[1], O_RDONLY);
-		if (fd == -1)
+		map.fd = open(argv[1], O_RDONLY);
+		if (map.fd == -1)
 		{
-			error (fd, 1, &map);
+			error (1, &map);
 		}
-		map_open(fd, &map);
+		map_open(&map);
 	}
 	else
 	{
-		error (fd, 1, &map);
+		error (1, &map);
 	}
 	ft_bzero(&img, sizeof(t_data));
 	img.mlx = mlx_init();

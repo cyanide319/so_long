@@ -6,13 +6,13 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:37:44 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/10/25 16:22:14 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:38:46 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	error(int fd, int code, t_map *map)
+void	error(int code, t_map *map)
 {
 	if (code == 1)
 	{
@@ -26,7 +26,7 @@ void	error(int fd, int code, t_map *map)
 	{
 		ft_printf("T'a map est vide dude\n");
 	}
-	clean_n_quit(fd, map);
+	clean_n_quit(map);
 }
 
 void	free_array(char	***tabp)
@@ -46,11 +46,11 @@ void	free_array(char	***tabp)
 	*tabp = NULL;
 }
 
-void	clean_n_quit(int fd, t_map *map)
+void	clean_n_quit(t_map *map)
 {
 	if (map->map)
 		free(map->map);
-	if (fd != -1 && fd != 0)
-		close (fd);
+	if (map->fd != -1 && map->fd != 0)
+		close (map->fd);
 	exit (0);
 }
