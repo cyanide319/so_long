@@ -6,7 +6,7 @@
 #    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/10 15:20:57 by tbeaudoi          #+#    #+#              #
-#    Updated: 2022/11/02 10:52:59 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2022/11/02 14:38:08 by tbeaudoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS = src/so_long.c \
 			src/map_parsing1.c \
 			src/map_parsing2.c \
 			src/init_imgs.c \
+			src/player_moves.c \
 			 
 # SRCS = $(addprefix $(SRCS_PATH), $(SRCS_FILES))
 OBJS = $(SRCS:.c=.o)

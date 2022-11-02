@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:37:44 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/01 14:29:37 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/02 17:37:44 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,25 @@ void	clean_n_quit(t_map *map)
 	if (map->map)
 		free_array(&map->map);
 	exit (0);
+}
+
+void	swap_wall(t_map *map)
+{
+	void	*temp;
+	void	*temp2;
+	void	*temp3;
+	void	*temp4;
+
+	temp = map->walls;
+	map->walls = map->walls2;
+	map->walls2 = temp;
+	temp2 = map->col;
+	map->col = map->e;
+	map->e = temp2;
+	temp3 = map->p;
+	map->p = map->p2;
+	map->p2 = temp3;
+	temp4 = map->bg;
+	map->bg = map->bg2;
+	map->bg2 = temp4;
 }
