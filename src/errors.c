@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:37:44 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/03 20:51:57 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/04 10:22:20 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,27 +64,13 @@ void	clean_n_quit(t_map *map)
 	exit (0);
 }
 
-void	swap_wall(t_map *map)
+t_bool	check_img_file(char *str)
 {
-	void	*temp;
-	void	*temp2;
-	void	*temp3;
-	void	*temp4;
-	void	*temp5;
+	int	fd;
 
-	temp = map->walls;
-	map->walls = map->walls2;
-	map->walls2 = temp;
-	temp2 = map->col;
-	map->col = map->col2;
-	map->col2 = temp2;
-	temp3 = map->p;
-	map->p = map->p2;
-	map->p2 = temp3;
-	temp4 = map->bg;
-	map->bg = map->bg2;
-	map->bg2 = temp4;
-	temp5 = map->e;
-	map->e = map->e2;
-	map->e2 = temp5;
+	fd = open(str, O_RDONLY);
+	if (fd <= 0)
+		return (false);
+	close (fd);
+	return (true);
 }

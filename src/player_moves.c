@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:25:58 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/03 20:58:21 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/04 12:34:59 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,14 @@ void	move_right(t_map *map)
 	{
 		if (map->map[map->py][map->px + 1] == 'E' &&
 			map->collec == 0)
-		{
 			win_game(map);
-		}
 		if (map->map[map->py][map->px + 1] == 'E' &&
 			map->collec != 0)
-		{
 			return ;
-		}
 		if (map->map[map->py][map->px + 1] == 'C')
 			map->collec--;
+		if (map->map[map->py][map->px + 1] == 'X')
+			lose_game(map);
 		map->map[map->py][map->px] = '0';
 		map->map[map->py][map->px + 1] = 'P';
 		map->px++;
@@ -58,16 +56,14 @@ void	move_left(t_map *map)
 	{
 		if (map->map[map->py][map->px - 1] == 'E' &&
 			map->collec == 0)
-		{
 			win_game(map);
-		}
 		if (map->map[map->py][map->px - 1] == 'E' &&
 			map->collec != 0)
-		{
 			return ;
-		}
 		if (map->map[map->py][map->px - 1] == 'C')
 			map->collec--;
+		if (map->map[map->py][map->px - 1] == 'X')
+			lose_game(map);
 		map->map[map->py][map->px - 1] = 'P';
 		map->map[map->py][map->px] = '0';
 		map->px--;
@@ -88,6 +84,8 @@ void	move_up(t_map *map)
 			return ;
 		if (map->map[map->py - 1][map->px] == 'C')
 			map->collec--;
+		if (map->map[map->py - 1][map->px] == 'X')
+			lose_game(map);
 		map->map[map->py][map->px] = '0';
 		map->map[map->py - 1][map->px] = 'P';
 		map->py--;
@@ -102,16 +100,14 @@ void	move_down(t_map *map)
 	{
 		if (map->map[map->py + 1][map->px] == 'E' &&
 			map->collec == 0)
-		{
 			win_game(map);
-		}
 		if (map->map[map->py + 1][map->px] == 'E' &&
 			map->collec != 0)
-		{
 			return ;
-		}
 		if (map->map[map->py + 1][map->px] == 'C')
 			map->collec--;
+		if (map->map[map->py + 1][map->px] == 'X')
+			lose_game(map);
 		map->map[map->py][map->px] = '0';
 		map->map[map->py + 1][map->px] = 'P';
 		map->py++;

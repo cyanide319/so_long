@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 15:45:03 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/03 20:54:36 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/04 14:00:11 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ void	check_core(t_map *map)
 	int		iy;
 
 	iy = 1;
-	map->player = 0;
-	map->collec = 0;
-	map->exit = 0;
 	while (iy < map->y - 1)
 	{
 		ix = 0;
@@ -49,6 +46,8 @@ void	check_core(t_map *map)
 				map->player++;
 			else if (map->map[iy][ix] == 'E')
 				map->exit++;
+			else if (map->map[iy][ix] == 'X')
+				map->xflag++;
 			valid_comp(map->map[iy][ix]);
 			ix++;
 		}
@@ -61,7 +60,7 @@ void	valid_comp(char c)
 	char	*comp_set;
 	int		i;
 
-	comp_set = "01CPE";
+	comp_set = "01CPEX";
 	i = 0;
 	while (comp_set[i])
 	{
@@ -71,7 +70,7 @@ void	valid_comp(char c)
 	}
 	write(2, "Error\n", 7);
 	ft_printf("Bad component");
-	exit (0);
+	exit(0);
 }
 
 void	check_components(t_map *map)
@@ -82,6 +81,14 @@ void	check_components(t_map *map)
 		error(11, map);
 	if (map->exit != 1)
 		error(12, map);
+	if (map->xflag == 0)
+		return ;
+	if (map->xflag > 1)
+	{
+		write(2, "Error\n", 7);
+		ft_printf("Pas plus qu'un enemy\n");
+		clean_n_quit(map);
+	}
 }
 
 void	check_file_format(char *str)

@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:19:13 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/03 20:19:46 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/04 13:51:56 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,19 @@ int	keybinds(int keycode, t_map *map)
 		exit (0);
 	}
 	if (keycode == 13)
-	{
 		move_up(map);
-	}
 	if (keycode == 1)
-	{
 		move_down(map);
-	}
 	if (keycode == 0)
-	{
 		move_left(map);
-	}
 	if (keycode == 2)
-	{
 		move_right(map);
+	if (keycode == 46)
+	{
+		if (map->modeflag == 1)
+			map->modeflag = 0;
+		else if (map->modeflag == 0)
+			map->modeflag = 1;
 	}
 	return (0);
 }
@@ -66,7 +65,11 @@ void	win_game(t_map *map)
 
 int	update(t_map *map)
 {
-	swap_wall(map);
+	swap_p_x(map);
+	if (map->modeflag == 1)
+		swap_wall(map);
+	if (map->xflag == 1)
+		enemy_ctrl(map);
 	usleep(76666);
 	put_img_on_map(map);
 	return (0);

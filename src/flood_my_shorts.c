@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:30:59 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/03 21:34:53 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/04 10:49:30 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,8 @@ void	check_valid_path(t_map *map)
 		while (x < map->x)
 		{
 			if (testmap[y][x] == '1' || testmap[y][x] == 'A'
-				|| testmap[y][x] == 'E' || testmap[y][x] == '0')
+				|| testmap[y][x] == 'E' || testmap[y][x] == '0'
+				|| testmap[y][x] == 'X')
 				x++;
 			else if (testmap[y][x] == 'C')
 				bad_path(map, testmap);

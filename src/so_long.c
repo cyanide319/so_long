@@ -6,17 +6,27 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:29:32 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/03 20:21:53 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/04 13:59:22 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
+void	variable_init(t_map *map)
+{
+	map->mv = 0;
+	map->modeflag = 0;
+	map->xflag = 0;
+	map->player = 0;
+	map->collec = 0;
+	map->exit = 0;
+}
+
 int	main(int argc, char **argv)
 {
 	t_map	map;
 
-	map.mv = 0;
+	variable_init(&map);
 	map_open(&map, argc, argv);
 	fucking_functions_function(&map);
 	window_init(&map);

@@ -6,21 +6,20 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 08:25:38 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/03 20:32:43 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/04 13:09:11 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-t_bool	check_img_file(char *str)
+void	move_on_screen(t_map *map)
 {
-	int	fd;
+	char	*nbmv;
 
-	fd = open(str, O_RDONLY);
-	if (fd <= 0)
-		return (false);
-	close (fd);
-	return (true);
+	nbmv = ft_itoa(map->mv);
+	mlx_string_put(map->mlx, map->mlx_win, 62, 60, 0x000000FF, "Moves: ");
+	mlx_string_put(map->mlx, map->mlx_win, 125, 60, 0x000000FF, nbmv);
+	free(nbmv);
 }
 
 void	check_img(void)
@@ -59,6 +58,21 @@ void	get_img(t_map *map)
 			&map->img_x, &map->img_y);
 	map->e2 = mlx_xpm_file_to_image(map->mlx, "./ass_set/exit3.xpm",
 			&map->img_x, &map->img_y);
+	get_img2(map);
+}
+
+void	get_img2(t_map *map)
+{
+	map->x_l = mlx_xpm_file_to_image(map->mlx, "./ass_set/e_l.xpm",
+			&map->img_x, &map->img_y);
+	map->x_r = mlx_xpm_file_to_image(map->mlx, "./ass_set/e_r.xpm",
+			&map->img_x, &map->img_y);
+	map->x_d = mlx_xpm_file_to_image(map->mlx, "./ass_set/e_d.xpm",
+			&map->img_x, &map->img_y);
+	map->x_u = mlx_xpm_file_to_image(map->mlx, "./ass_set/e_u.xpm",
+			&map->img_x, &map->img_y);
+	map->x_current = mlx_xpm_file_to_image(map->mlx, "./ass_set/e_l.xpm",
+			&map->img_x, &map->img_y);
 	put_img_on_map(map);
 }
 
@@ -80,27 +94,11 @@ void	put_img_on_map(t_map *map)
 				img_select(map, '0');
 			else if (map->map[map->iy][map->ix] == '1')
 				img_select(map, '1');
+			else if (map->map[map->iy][map->ix] == 'X')
+				img_select(map, 'X');
 			map->ix++;
 		}
 		map->iy++;
 	}
-}
-
-void	img_select(t_map *map, char c)
-{
-	if (c == 'C')
-		mlx_put_image_to_window(map->mlx, map->mlx_win, map->col,
-			map->ix * 64, map->iy * 64);
-	if (c == 'P')
-		mlx_put_image_to_window(map->mlx, map->mlx_win, map->p,
-			map->ix * 64, map->iy * 64);
-	if (c == 'E')
-		mlx_put_image_to_window(map->mlx, map->mlx_win, map->e,
-			map->ix * 64, map->iy * 64);
-	if (c == '0')
-		mlx_put_image_to_window(map->mlx, map->mlx_win, map->bg,
-			map->ix * 64, map->iy * 64);
-	if (c == '1')
-		mlx_put_image_to_window(map->mlx, map->mlx_win, map->walls,
-			map->ix * 64, map->iy * 64);
+	move_on_screen(map);
 }
