@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:10:31 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/03 17:29:20 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/04 15:21:32 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	check_top(t_map *map)
 	while (map->map[0][i] != '\n')
 		i++;
 	map->x_top = i;
+	if (map->x_top > 50)
+		error(2, map);
 	i = 0;
 	while (i < map->x_top)
 	{

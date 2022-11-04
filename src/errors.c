@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:37:44 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/04 10:22:20 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/04 15:19:04 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	error(int code, t_map *map)
 	else if (code == 2)
 		ft_printf ("Rentrera pas dans l'ecran esti\n");
 	else if (code == 3)
-		ft_printf("T'a map est vide dude\n");
+		ft_printf("T'a map est vide dude, ou s'pas une map\n");
 	else if (code == 4)
 		ft_printf("Ton top top pas comme un top devrais topper\n");
 	else if (code == 5)

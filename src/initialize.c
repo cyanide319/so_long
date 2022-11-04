@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:50:08 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/03 20:57:02 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/04 15:20:07 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,17 @@ void	map_open(t_map *map, int argc, char **argv)
 	{
 		check_file_format(argv[1]);
 		fd = open(argv[1], O_RDONLY);
-		if (fd == -1)
+		if (fd == -1 || fd == 0)
 		{
 			write(2, "Error\n", 7);
+			exit(0);
 		}
 		map_read(map, fd);
 	}
 	else
 	{
-		error (1, map);
+		write(2, "Error\n", 7);
+		ft_printf("T'a pas mis d'map ou trop d'arg, sti d'chaudron\n");
+		exit (0);
 	}
 }

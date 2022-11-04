@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:29:32 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/04 13:59:22 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/04 15:14:57 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	variable_init(t_map *map)
 	map->collec = 0;
 	map->exit = 0;
 }
+// ./so_long sans arguments ou plusieurs 2+
 
 int	main(int argc, char **argv)
 {
