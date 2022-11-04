@@ -6,7 +6,7 @@
 #    By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/10 15:20:57 by tbeaudoi          #+#    #+#              #
-#    Updated: 2022/11/03 20:22:51 by tbeaudoi         ###   ########.fr        #
+#    Updated: 2022/11/03 21:48:07 by tbeaudoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,6 @@ NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g
 RM = rm -f
-
-# SRCS_PATH = src/
 
 LIBFT = include/libft/libft.a
 LIBFT_PATH = include/libft/
@@ -41,7 +39,6 @@ SRCS = src/so_long.c \
 OBJS = $(SRCS:.c=.o)
 
 all: 	$(NAME)
-
 
 $(NAME): $(OBJS) $(GNL_OBJ)
 	$(MAKE) -C $(LIBFT_PATH)
