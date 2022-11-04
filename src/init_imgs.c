@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 08:25:38 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/02 17:09:23 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/03 20:32:43 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	get_img(t_map *map)
 			&map->img_x, &map->img_y);
 	map->col = mlx_xpm_file_to_image(map->mlx, "./ass_set/collectible.xpm",
 			&map->img_x, &map->img_y);
-	map->e = mlx_xpm_file_to_image(map->mlx, "./ass_set/exit.xpm",
+	map->col2 = mlx_xpm_file_to_image(map->mlx, "./ass_set/exit.xpm",
 			&map->img_x, &map->img_y);
 	map->bg = mlx_xpm_file_to_image(map->mlx, "./ass_set/floor.xpm",
 			&map->img_x, &map->img_y);
@@ -54,6 +54,10 @@ void	get_img(t_map *map)
 	map->walls = mlx_xpm_file_to_image(map->mlx, "./ass_set/walls.xpm",
 			&map->img_x, &map->img_y);
 	map->walls2 = mlx_xpm_file_to_image(map->mlx, "./ass_set/walls2.xpm",
+			&map->img_x, &map->img_y);
+	map->e = mlx_xpm_file_to_image(map->mlx, "./ass_set/exit2.xpm",
+			&map->img_x, &map->img_y);
+	map->e2 = mlx_xpm_file_to_image(map->mlx, "./ass_set/exit3.xpm",
 			&map->img_x, &map->img_y);
 	put_img_on_map(map);
 }

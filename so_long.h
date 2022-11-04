@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:29:47 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/02 17:09:12 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/03 20:31:41 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_map{
 	int		collec;
 	int		player;
 	int		exit;
+	int		exitcheck;
 
 	int		ix;
 	int		iy;
@@ -44,7 +45,9 @@ typedef struct s_map{
 	void	*p;
 	void	*p2;
 	void	*col;
+	void	*col2;
 	void	*e;
+	void	*e2;
 	void	*bg;
 	void	*bg2;
 	void	*walls;
@@ -79,12 +82,14 @@ void	check_core(t_map *map);
 void	check_components(t_map *map);
 void	check_file_format(char *str);
 void	valid_comp(char c);
+void	check_valid_path(t_map *map);
 
 //mlx craps - imgs
 void	window_init(t_map *map);
 void	get_img(t_map *map);
 void	put_img_on_map(t_map *map);
 void	img_select(t_map *map, char c);
+int		update(t_map *map);
 
 //errors handling
 void	error(int code, t_map *map);
@@ -103,5 +108,6 @@ void	swap_wall(t_map *map);
 //key mapping
 int		exit_escape(int keycode, t_map *map);
 int		exit_x(t_map *map);
+int		keybinds(int keycode, t_map *map);
 
 #endif

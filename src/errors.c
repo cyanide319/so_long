@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:37:44 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/02 17:37:44 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/03 20:33:35 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	error(int code, t_map *map)
 	else if (code == 8)
 		ft_printf("Ton right side suck\n");
 	else if (code == 9)
-		ft_printf("S'pas un rectangle ta map, le twit\n");
+		ft_printf("S'pas un rectangle ta criss de map le twit\n");
 	else if (code == 10)
 		ft_printf("Pas de collectible\n");
 	else if (code == 11)
@@ -71,17 +71,21 @@ void	swap_wall(t_map *map)
 	void	*temp2;
 	void	*temp3;
 	void	*temp4;
+	void	*temp5;
 
 	temp = map->walls;
 	map->walls = map->walls2;
 	map->walls2 = temp;
 	temp2 = map->col;
-	map->col = map->e;
-	map->e = temp2;
+	map->col = map->col2;
+	map->col2 = temp2;
 	temp3 = map->p;
 	map->p = map->p2;
 	map->p2 = temp3;
 	temp4 = map->bg;
 	map->bg = map->bg2;
 	map->bg2 = temp4;
+	temp5 = map->e;
+	map->e = map->e2;
+	map->e2 = temp5;
 }

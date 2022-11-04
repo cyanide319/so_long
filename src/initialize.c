@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:50:08 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/02 10:42:54 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/03 14:47:05 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	map_open(t_map *map, int argc, char **argv)
 		fd = open(argv[1], O_RDONLY);
 		if (fd == -1)
 		{
-			error (1, map);
+			write(2, "Error\n", 7);
 		}
 		map_read(map, fd);
 	}

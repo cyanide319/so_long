@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:10:31 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/10/31 16:58:49 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/03 17:29:20 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	fucking_functions_function(t_map *map)
 	check_right_side(map);
 	check_core(map);
 	check_components(map);
+	find_player_pos(map);
+	check_valid_path(map);
 }
 
 void	check_top(t_map *map)
