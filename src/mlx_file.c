@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:19:13 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/04 13:51:56 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/04 15:43:16 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	keybinds(int keycode, t_map *map)
 		mlx_destroy_window(map->mlx, map->mlx_win);
 		exit (0);
 	}
-	if (keycode == 13)
+	if (keycode == 13 || keycode == 126)
 		move_up(map);
-	if (keycode == 1)
+	if (keycode == 1 || keycode == 125)
 		move_down(map);
-	if (keycode == 0)
+	if (keycode == 0 || keycode == 123)
 		move_left(map);
-	if (keycode == 2)
+	if (keycode == 2 || keycode == 124)
 		move_right(map);
 	if (keycode == 46)
 	{

@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:50:08 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/04 15:20:07 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/04 16:18:37 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	map_read(t_map *map, int fd)
 {
 	char	*temp;
 
-	map->map = ft_calloc(sizeof(char *), 50);
+	map->map = ft_calloc(sizeof(char *), 30);
 	temp = get_next_line(fd);
 	map->y = 0;
 	if (temp == NULL)
@@ -28,7 +28,7 @@ void	map_read(t_map *map, int fd)
 	{
 		map->map[map->y] = ft_strdup(temp);
 		map->y++;
-		if (map->y > 50)
+		if (map->y > 30)
 		{
 			error(2, map);
 		}
