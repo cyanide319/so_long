@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:25:58 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/03 19:55:33 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/03 20:58:21 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ void	move_right(t_map *map)
 		map->map[map->py][map->px + 1] = 'P';
 		map->px++;
 		map->mv++;
-		//swap_wall(map);
 		ft_printf("Nb of move: %d\n", map->mv);
-		//put_img_on_map(map);
 	}
 }
 
@@ -74,9 +72,7 @@ void	move_left(t_map *map)
 		map->map[map->py][map->px] = '0';
 		map->px--;
 		map->mv++;
-		//swap_wall(map);
 		ft_printf("Nb of move: %d\n", map->mv);
-		//put_img_on_map(map);
 	}
 }
 
@@ -96,9 +92,7 @@ void	move_up(t_map *map)
 		map->map[map->py - 1][map->px] = 'P';
 		map->py--;
 		map->mv++;
-		//swap_wall(map);
 		ft_printf("Nb of move: %d\n", map->mv);
-		//put_img_on_map(map);
 	}
 }
 
@@ -122,8 +116,6 @@ void	move_down(t_map *map)
 		map->map[map->py + 1][map->px] = 'P';
 		map->py++;
 		map->mv++;
-		//swap_wall(map);
 		ft_printf("Nb of move: %d\n", map->mv);
-		//put_img_on_map(map);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 19:30:59 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/03 16:11:15 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/03 21:34:53 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ void	check_valid_path(t_map *map)
 	map->exitcheck = 0;
 	testmap = map_dup(map);
 	flood_map(map, testmap, map->py, map->px);
+	if (map->exitcheck == 0)
+		bad_path(map, testmap);
 	while (y < map->y)
 	{
 		x = 1;
@@ -100,9 +102,7 @@ void	check_valid_path(t_map *map)
 			if (testmap[y][x] == '1' || testmap[y][x] == 'A'
 				|| testmap[y][x] == 'E' || testmap[y][x] == '0')
 				x++;
-			else if (map->exitcheck < 1)
-				bad_path(map, testmap);
-			else
+			else if (testmap[y][x] == 'C')
 				bad_path(map, testmap);
 		}
 		y++;

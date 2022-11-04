@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:37:44 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/03 20:33:35 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/03 20:51:57 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	error(int code, t_map *map)
 {
+	write(2, "Error\n", 7);
 	if (code == 1)
 		ft_printf("T'a pas mis d'map, sti d'chaudron\n");
 	else if (code == 2)
@@ -27,9 +28,7 @@ void	error(int code, t_map *map)
 	else if (code == 6)
 		ft_printf("Ton top rentre pas dans ton bottom(Pas rectangle)\n");
 	else if (code == 7)
-		ft_printf("Ton left side suck\n");
-	else if (code == 8)
-		ft_printf("Ton right side suck\n");
+		ft_printf("Ton side suck\n");
 	else if (code == 9)
 		ft_printf("S'pas un rectangle ta criss de map le twit\n");
 	else if (code == 10)

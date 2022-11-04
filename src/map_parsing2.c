@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 15:45:03 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/02 13:26:53 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/03 20:54:36 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	check_right_side(t_map *map)
 	{
 		if (map->map[i][map->x - 1] != '1')
 		{
-			error(8, map);
+			error(7, map);
 		}
 		i++;
 	}
@@ -69,6 +69,7 @@ void	valid_comp(char c)
 			return ;
 		i++;
 	}
+	write(2, "Error\n", 7);
 	ft_printf("Bad component");
 	exit (0);
 }
@@ -99,6 +100,7 @@ void	check_file_format(char *str)
 	{
 		if (str[i] != comp[j])
 		{
+			write(2, "Error\n", 7);
 			ft_printf("T'a map s'pas un .ber tarla");
 			exit(0);
 		}

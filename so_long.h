@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:29:47 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/03 20:31:41 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/03 20:55:14 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include "include/libft/libft.h"  // to check -bzero
+# include "include/libft/libft.h"
 # include "include/printf/ft_printf.h"
-# include "include/get_next_line/get_next_line.h"  //------
+# include "include/get_next_line/get_next_line.h" 
 
 typedef struct s_map{
 	char	**map;
@@ -57,11 +57,6 @@ typedef struct s_map{
 	void	*mlx_win;
 	void	*mlx;
 }	t_map;
-
-// typedef struct s_data {
-
-// 	t_map	*map;
-// }				t_data;
 
 typedef enum e_bool{
 	true,
