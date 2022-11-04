@@ -6,7 +6,7 @@
 /*   By: tbeaudoi <tbeaudoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 20:19:13 by tbeaudoi          #+#    #+#             */
-/*   Updated: 2022/11/04 15:43:16 by tbeaudoi         ###   ########.fr       */
+/*   Updated: 2022/11/04 16:31:57 by tbeaudoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	window_init(t_map *map)
 
 void	win_game(t_map *map)
 {
-	ft_printf("Congrats and shit, you killed a sheep");
+	ft_printf("Congrats and shit, you killed a sheep\n");
 	mlx_destroy_window(map->mlx, map->mlx_win);
 	exit (0);
 }
